@@ -12,10 +12,10 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     line-height: 1.7;
-    color: #34495e; /* Dark slate gray */
-    background-color: #ecf0f1; /* Light gray */
+    color: #34495e;
+    background-color: #ecf0f1;
     padding: 30px;
-     overflow-x: hidden; /* Remove unwanted x scroll if elements are overflowing */
+     overflow-x: hidden;
 }
 
 /* Container for content */
@@ -25,7 +25,7 @@ body {
     background-color: #fff;
     padding: 30px 40px;
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Header Styles */
@@ -35,29 +35,41 @@ header {
     align-items: center;
     padding: 25px 0;
     margin-bottom: 30px;
-    border-bottom: 2px solid #e74c3c; /* Red border */
+    border-bottom: 2px solid #e74c3c;
 }
 
 header h1 {
     font-size: 2.5em;
-    color: #2c3e50; /* Dark blue heading */
+    color: #2c3e50;
     font-weight: bold;
     letter-spacing: 1px;
+    flex: 1; /* Allow header to take remaining space */
+    min-width: 0; /* Prevent h1 from overflowing on smaller screens */
+
+}
+
+header nav {
+    flex-shrink: 0; /* Prevent nav from shrinking */
+    min-width: fit-content; /* Let nav determine its own size */
+    margin-left: 15px;
 }
 
 header nav ul {
     display: flex;
+    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
     list-style: none;
     align-items: center;
+    justify-content: flex-end;
 }
 
 header nav ul li {
     margin-left: 25px;
+     margin-bottom: 5px; /* Spacing for wrapped items */
 }
 
 header nav a {
     text-decoration: none;
-     color: #e74c3c; /* Red link color */
+     color: #e74c3c;
     transition: color 0.3s ease;
     position: relative;
     padding-bottom: 5px;
@@ -70,7 +82,7 @@ header nav a:before {
     bottom: 0;
     width: 0;
     height: 2px;
-    background-color: #3498db; /* Blue underline color */
+    background-color: #3498db;
     transition: width 0.3s ease;
 }
 
@@ -78,9 +90,8 @@ header nav a:hover:before {
     width: 100%;
 }
 
-
 header nav a:hover {
-    color: #3498db; /* Blue hover color */
+    color: #3498db;
      text-decoration: none;
 }
 
@@ -91,35 +102,33 @@ section {
 
 section h2 {
     font-size: 2em;
-    color: #2c3e50; /* Dark blue */
-    border-bottom: 3px solid #f1c40f; /* Yellow border */
+    color: #2c3e50;
+    border-bottom: 3px solid #f1c40f;
     padding-bottom: 10px;
     margin-bottom: 25px;
     position: relative;
-    display: inline-block; /* To allow relative positioning */
+    display: inline-block;
 }
 section h2:after{
     content: '';
     position: absolute;
     left: 0;
     bottom: -5px;
-    width: 50px; /* Short highlight bar */
+    width: 50px;
     height: 4px;
-    background-color: #2ecc71; /* Green highlight*/
+    background-color: #2ecc71;
 }
 section h3 {
     font-size: 1.6em;
     color: #2c3e50;
     margin-top: 20px;
 }
-
 /* Paragraphs */
 p {
     margin-bottom: 20px;
     line-height: 1.8;
     color: #555;
 }
-
 /* Lists */
 ul, ol {
     margin-left: 30px;
@@ -129,14 +138,13 @@ ul, ol {
 li {
     margin-bottom: 10px;
 }
-
 /* Code Styles */
 code {
     background-color: #f0f0f0;
     padding: 4px 8px;
     border-radius: 6px;
     font-family: 'Roboto Mono', monospace;
-    color: #c0392b; /* Red code color */
+    color: #c0392b;
 }
 
 pre {
@@ -147,7 +155,7 @@ pre {
     margin-bottom: 25px;
     line-height: 1.6;
     white-space: pre-wrap;
-    border-left: 3px solid #e74c3c; /* Red border */
+    border-left: 3px solid #e74c3c;
 }
 
 pre code {
@@ -156,7 +164,7 @@ pre code {
 }
 /* Links */
 a {
-    color: #3498db; /* Blue link */
+    color: #3498db;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -168,7 +176,7 @@ a:hover {
  /* Feature Styles */
 .feature {
     display: flex;
-     flex-direction: row; /* Place image next to text */
+     flex-direction: row;
      align-items: flex-start;
      margin-bottom: 30px;
     border: 1px solid #ddd;
@@ -176,10 +184,9 @@ a:hover {
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .feature:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* More pronounced on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 .feature img {
     max-width: 30%;
@@ -191,16 +198,14 @@ a:hover {
 .feature h3 {
     margin-top: 0;
 }
-
 .feature > div {
-    flex: 1; /* Take remaining space */
+    flex: 1;
 }
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
         padding: 15px;
     }
-
     .container {
         padding: 20px;
     }
@@ -209,13 +214,13 @@ a:hover {
         flex-direction: column;
          text-align: left;
      }
-      header h1 {
+    header h1 {
          margin-bottom: 15px;
          font-size: 2.2em;
      }
       header nav ul {
          flex-direction: column;
-     }
+    }
     header nav ul li {
         margin-left: 0;
         margin-bottom: 5px;
@@ -227,6 +232,6 @@ a:hover {
     .feature img {
         max-width: 80%;
         margin-right: 0;
-       margin-bottom: 15px;
+        margin-bottom: 15px;
     }
 }
