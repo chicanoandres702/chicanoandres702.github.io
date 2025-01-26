@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Importer Documentation</title>
-    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -13,44 +14,44 @@
             <h1>GitHub Importer Documentation</h1>
             <nav>
                 <ul>
-                    <li><a href="#introduction">Introduction</a></li>
+                     <li><a href="#introduction">Introduction</a></li>
                     <li><a href="#description">Software Description</a></li>
                     <li><a href="#getting-started">Getting Started</a></li>
                     <li><a href="#usage">Usage</a></li>
                     <li><a href="#json-structure">JSON Structure</a></li>
                     <li><a href="#troubleshooting">Troubleshooting</a></li>
-                     <li><a href="#contributing">Contributing</a></li>
+                    <li><a href="#contributing">Contributing</a></li>
                     <li><a href="#license">License</a></li>
                 </ul>
             </nav>
         </header>
 
-         <section id="introduction">
+        <section id="introduction">
             <h2>1. Introduction</h2>
             <p>The GitHub Importer is a desktop application that automates the process of creating milestones and issues in GitHub repositories. This tool streamlines project setup by importing data from a JSON file, which allows you to define milestones, associated issues, and all of the related information such as tasks, descriptions, overviews, labels, assignees, and comments.</p>
         </section>
 
          <section id="description">
             <h2>2. Software Description</h2>
-            <p>The GitHub Importer provides a user-friendly interface to automate the creation of milestones and issues. The application is simple to use and is broken down into these primary components:</p>
+             <p>The GitHub Importer provides a user-friendly interface to automate the creation of milestones and issues. The application is simple to use and is broken down into these primary components:</p>
            <div class="feature">
                  <h3>Authorization</h3>
-                 <p>The application utilizes a 'Authorize with GitHub' button to gain access to your GitHub account via the OAuth protocol. This allows you to provide your authentication details within the security of the GitHub site.</p>
+                <p>The application utilizes a 'Authorize with GitHub' button to gain access to your GitHub account via the OAuth protocol. This allows you to provide your authentication details within the security of the GitHub site.</p>
                  <img src="images/authorization.png" alt="Authorization Screenshot">
              </div>
-            <div class="feature">
+           <div class="feature">
                  <h3>Repository Selection</h3>
-                 <p>You are required to provide a repository owner and name for the import.  Make sure you provide the correct information for this section or you could potentially make changes to the wrong repository!</p>
+                 <p>You are required to provide a repository owner and name for the import. Make sure you provide the correct information for this section or you could potentially make changes to the wrong repository!</p>
                   <img src="images/repo_selection.png" alt="Repo Selection Screenshot">
-             </div>
+            </div>
             <div class="feature">
-                 <h3>Import Data</h3>
-                 <p>Select a local json file, then click 'Import Data' to import the information to the specified repository. This process will create a new Milestone and all associated issues using the information provided in the file.</p>
+                  <h3>Import Data</h3>
+                <p>Select a local json file, then click 'Import Data' to import the information to the specified repository. This process will create a new Milestone and all associated issues using the information provided in the file.</p>
                  <img src="images/import_data.png" alt="Import Data Screenshot">
               </div>
              <div class="feature">
                  <h3>Status</h3>
-                 <p>The application will provide output to the screen using the status message, allowing you to get feedback on every step of the process.</p>
+               <p>The application will provide output to the screen using the status message, allowing you to get feedback on every step of the process.</p>
                   <img src="images/status.png" alt="Status Screenshot">
               </div>
         </section>
@@ -58,25 +59,36 @@
         <section id="getting-started">
             <h2>3. Getting Started</h2>
 
-            <h3>3.1. Prerequisites</h3>
+             <h3>3.1. GitHub App Permissions</h3>
+             <p> When creating your GitHub App, you will need to configure it with the following permissions:</p>
              <ul>
-                <li><strong>Python 3:</strong> Ensure you have Python 3.7 or later installed on your system. You can download it from the <a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">official Python website</a>.</li>
+                 <li><strong>Repository Permissions</strong>: The following permissions are necessary to use this app
+                     <ul>
+                         <li><strong>Issues</strong>: Read and write access</li>
+                         <li><strong>Metadata</strong>: Read only access</li>
+                    </ul>
+               </li>
+             </ul>
+            <h3>3.2. Prerequisites</h3>
+              <ul>
+                 <li><strong>Python 3:</strong> Ensure you have Python 3.7 or later installed on your system. You can download it from the <a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">official Python website</a>.</li>
                  <li><strong>GitHub Account:</strong> You must have an active GitHub account to use this application.</li>
-                <li><strong>GitHub Client ID and Secret:</strong>
-                    <ol>
-                       <li>Create a Github app with a redirect URL of <code>http://localhost:8000/callback</code>.</li>
-                      <li>Copy the Client ID and Secret.</li>
-                  </ol>
-                </li>
-                <li><strong>.env file:</strong> Create a <code>.env</code> file in the same folder as the <code>main.py</code> file and add your GitHub Client ID and Secret.
-                     <pre><code>GITHUB_CLIENT_ID=<your client id>
+                 <li><strong>GitHub Client ID and Secret:</strong>
+                     <ol>
+                         <li>Create a Github app with a redirect URL of <code>http://localhost:8000/callback</code>.</li>
+                        <li>Copy the Client ID and Secret.</li>
+                    </ol>
+               </li>
+                 <li><strong>.env file:</strong> Create a <code>.env</code> file in the same folder as the <code>main.py</code> file and add your GitHub Client ID and Secret.
+                       <pre><code>GITHUB_CLIENT_ID=<your client id>
 GITHUB_CLIENT_SECRET=<your client secret>
-                        </code></pre>
+                       </code></pre>
                  </li>
-                 <li><strong>Installed Dependencies:</strong> Install all the required dependencies by running <code>pip install -r requirements.txt</code> where <code>requirements.txt</code> includes the libraries such as <code>requests</code>, <code>flask</code>, <code>python-dotenv</code>, <code>tkinter</code>.</li>
+                <li><strong>Installed Dependencies:</strong> Install all the required dependencies by running <code>pip install -r requirements.txt</code> where <code>requirements.txt</code> includes the libraries such as <code>requests</code>, <code>flask</code>, <code>python-dotenv</code>, <code>tkinter</code>.</li>
              </ul>
 
-            <h3>3.2. Installation</h3>
+
+            <h3>3.3. Installation</h3>
             <ol>
                 <li><strong>Clone Repository:</strong>
                     <pre><code>git clone <repository url>
@@ -85,18 +97,18 @@ cd <repository directory>
                 </li>
                 <li><strong>Create Virtual Environment:</strong>
                     <pre><code>python3 -m venv venv</code></pre>
-                 </li>
-                  <li><strong>Activate Virtual Environment:</strong>
-                    <pre><code>source venv/bin/activate</code></pre>
-                     <p> or </p>
-                     <pre><code>venv\Scripts\activate</code></pre>
-                 </li>
-                  <li><strong>Install dependencies:</strong>
-                    <pre><code>pip install -r requirements.txt</code></pre>
                 </li>
+                <li><strong>Activate Virtual Environment:</strong>
+                    <pre><code>source venv/bin/activate</code></pre>
+                    <p> or </p>
+                    <pre><code>venv\Scripts\activate</code></pre>
+                 </li>
+                 <li><strong>Install dependencies:</strong>
+                   <pre><code>pip install -r requirements.txt</code></pre>
+                 </li>
             </ol>
 
-            <h3>3.3. Running the Application</h3>
+            <h3>3.4. Running the Application</h3>
             <ol>
                 <li><strong>Run <code>main.py</code></strong> : Navigate to the project directory and execute <code>python main.py</code></li>
                 <li>The main application window will open up.</li>
@@ -117,24 +129,24 @@ cd <repository directory>
             <ol>
                 <li>Enter the repository owner (username or organization) in the "Repository Owner" field.</li>
                 <li>Enter the name of the repository where you want to import the data in the "Repository Name" field.</li>
-                <li>Make sure this is the repository you intend to update or you could cause errors with your repository data.</li>
+                 <li>Make sure this is the repository you intend to update or you could cause errors with your repository data.</li>
             </ol>
 
-            <h3>4.3. Import File</h3>
+           <h3>4.3. Import File</h3>
             <ol>
-                <li>Click the "Browse" button to select a JSON file that contains milestone and issue data.</li>
+                 <li>Click the "Browse" button to select a JSON file that contains milestone and issue data.</li>
             </ol>
 
             <h3>4.4. Import Data</h3>
             <ol>
-                <li>Click the "Import Data" button.</li>
+               <li>Click the "Import Data" button.</li>
                 <li>The application will begin creating milestones and issues in your selected GitHub repository, based on the structure of the provided JSON file.</li>
                 <li>You'll see a status update message at the bottom of the app as the process is occurring. If an issue occurs, it will display here.</li>
-                <li>The logs are written to the console. You can check there for more detailed information on each request.</li>
+                 <li>The logs are written to the console. You can check there for more detailed information on each request.</li>
             </ol>
         </section>
 
-        <section id="json-structure">
+         <section id="json-structure">
             <h2>5. JSON Input File Structure</h2>
             <p>The JSON file must have a specific structure, as shown below:</p>
            <pre><code>
@@ -184,56 +196,56 @@ cd <repository directory>
 ]
             </code></pre>
             <ul>
-                <li>The outermost structure should be an array of milestone objects.</li>
-                 <li>Each milestone object can have the properties <code>title</code>, <code>description</code>, <code>due_on</code>, <code>state</code> and <code>issues</code>. <code>due_on</code> is the due date of the milestone, and <code>state</code> is the state the milestone should be set to.</li>
-                <li>Each milestone can have an array of <code>issues</code> inside the <code>issues</code> property.</li>
-                 <li>Each issue object can have the properties: <code>title</code>, <code>description</code>, <code>overview</code>, <code>tasks</code> (as an array of strings), <code>labels</code> (as an array of strings), <code>assignees</code> (as an array of strings), and <code>comments</code> (as an array of strings).</li>
+               <li>The outermost structure should be an array of milestone objects.</li>
+                <li>Each milestone object can have the properties <code>title</code>, <code>description</code>, <code>due_on</code>, <code>state</code> and <code>issues</code>. <code>due_on</code> is the due date of the milestone, and <code>state</code> is the state the milestone should be set to.</li>
+               <li>Each milestone can have an array of <code>issues</code> inside the <code>issues</code> property.</li>
+               <li>Each issue object can have the properties: <code>title</code>, <code>description</code>, <code>overview</code>, <code>tasks</code> (as an array of strings), <code>labels</code> (as an array of strings), <code>assignees</code> (as an array of strings), and <code>comments</code> (as an array of strings).</li>
                 <li>Any additional properties are ignored.</li>
             </ul>
         </section>
 
         <section id="troubleshooting">
             <h2>6. Troubleshooting</h2>
-             <ul>
-                  <li><strong>Authorization Issues:</strong>
-                      <ul>
-                         <li>Ensure your GitHub account has the necessary permissions.</li>
-                          <li>Make sure the credentials in the <code>.env</code> file are correct.</li>
-                         <li>Double-check your GitHub application's settings to make sure you are using the correct URLs.</li>
-                      </ul>
-                    </li>
-                     <li><strong>JSON Format Errors:</strong>
-                         <ul>
-                            <li>Make sure your JSON file adheres to the required structure.</li>
-                            <li>You can use a JSON validator to find errors before importing the data.</li>
-                        </ul>
-                   </li>
-                   <li><strong>API Rate Limiting:</strong>
+              <ul>
+                   <li><strong>Authorization Issues:</strong>
                         <ul>
-                           <li>GitHub's API is rate-limited. If the application encounters an error during a large import, it may be due to the rate limit being exceeded.</li>
-                           <li>Wait for a while and try again, or limit the amount of data that you are importing at once.</li>
+                            <li>Ensure your GitHub account has the necessary permissions.</li>
+                            <li>Make sure the credentials in the <code>.env</code> file are correct.</li>
+                            <li>Double-check your GitHub application's settings to make sure you are using the correct URLs.</li>
+                        </ul>
+                  </li>
+                 <li><strong>JSON Format Errors:</strong>
+                     <ul>
+                        <li>Make sure your JSON file adheres to the required structure.</li>
+                         <li>You can use a JSON validator to find errors before importing the data.</li>
+                     </ul>
+                  </li>
+                  <li><strong>API Rate Limiting:</strong>
+                      <ul>
+                        <li>GitHub's API is rate-limited. If the application encounters an error during a large import, it may be due to the rate limit being exceeded.</li>
+                       <li>Wait for a while and try again, or limit the amount of data that you are importing at once.</li>
                        </ul>
                    </li>
-                  <li><strong>Other Issues:</strong>
+                   <li><strong>Other Issues:</strong>
                        <ul>
                           <li>If the error message is not clear, check the logs outputted to the console.</li>
-                         <li>If the application does not work correctly, verify you have followed the instructions in "Getting Started" correctly.</li>
+                           <li>If the application does not work correctly, verify you have followed the instructions in "Getting Started" correctly.</li>
                          <li>If you still encounter issues, create an issue on the GitHub repository.</li>
-                      </ul>
-                 </li>
-            </ul>
+                       </ul>
+                    </li>
+           </ul>
         </section>
 
         <section id="contributing">
             <h2>7. Contributing</h2>
             <p>Contributions are welcome! To contribute to the GitHub Importer:</p>
-             <ol>
-                 <li>Fork the repository.</li>
-                  <li>Create a new branch with your changes: <code>git checkout -b my-feature</code>.</li>
+           <ol>
+                <li>Fork the repository.</li>
+                 <li>Create a new branch with your changes: <code>git checkout -b my-feature</code>.</li>
                  <li>Make your changes and commit them: <code>git commit -m "Description of changes"</code>.</li>
                  <li>Push the changes to your fork: <code>git push origin my-feature</code>.</li>
-                 <li>Submit a pull request.</li>
-            </ol>
+                <li>Submit a pull request.</li>
+           </ol>
         </section>
 
         <section id="license">
